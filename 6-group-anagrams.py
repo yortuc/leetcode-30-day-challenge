@@ -31,3 +31,21 @@ class Solution:
 # Runtime: 116 ms
 # Memory Usage: 16.9 MB
 # ------------------------------
+
+class Solution:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        g = {}
+        
+        for s in strs:
+            s_hash = ''.join(sorted(list(s)))
+            if s_hash in g: 
+                g[s_hash].append(s)
+            else:
+                g[s_hash] = [s]
+        
+        ret = [g[k] for k in g]
+        return ret
+        
+# Runtime: 96 ms
+# Memory Usage: 16.5 MB
+# the gain is less than I expected
